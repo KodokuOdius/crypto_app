@@ -1,4 +1,5 @@
 import React from "react";
+import "./Input.scss";
 
 export type InputProps = Omit<
     React.InputHTMLAttributes<HTMLInputElement>,
@@ -8,7 +9,7 @@ export type InputProps = Omit<
     onChange: (value: string) => void;
 };
 
-export const Input: React.FC<InputProps> = ({ value, onChange, disabled, className, ...inputAttrs }) => {
+const Input: React.FC<InputProps> = ({ value, onChange, disabled, className, ...inputAttrs }) => {
     const inpClasses = (disabled === true ? "input_disabled" : "") + (typeof (className) !== "undefined" ? " " + className : "")
     return (
         <div className="input">
@@ -18,3 +19,4 @@ export const Input: React.FC<InputProps> = ({ value, onChange, disabled, classNa
         </div>
     );
 };
+export default Input;

@@ -1,0 +1,20 @@
+.main_header {
+    width: auto;
+    top: 0;
+    border: 2px solid #131313;
+    margin-bottom: 20px;
+    position: sticky;
+    background-color: white;
+
+    &__navigate {
+        display: flex;
+        flex-direction: column;
+        a {
+            margin: 2px;
+            padding: 5px;
+            border: 1px solid #131313;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+    }
+}

@@ -1,5 +1,6 @@
 import React from "react";
-import { Loader } from "../Loader";
+import Loader from "@components/Loader";
+import "./Button.scss"
 
 export enum ButtonColor {
     primary = 'primary',
@@ -16,7 +17,7 @@ export type ButtonProps = React.PropsWithChildren<{
     color?: ButtonColor;
 }> & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const Button: React.FC<ButtonProps> = ({ loading, color = "primary", children, className = "", disabled, ...buttonAttrs }) => {
+const Button: React.FC<ButtonProps> = ({ loading, color = "primary", children, className = "", disabled, ...buttonAttrs }) => {
     const btnClasses = "button_color-" + color + (disabled === true || loading === true ? " button_disabled" : "") + " " + className;
     return (
         <button color={color} disabled={disabled || loading} className={btnClasses} {...buttonAttrs}>
@@ -25,3 +26,4 @@ export const Button: React.FC<ButtonProps> = ({ loading, color = "primary", chil
         </button>
     );
 };
+export default Button;

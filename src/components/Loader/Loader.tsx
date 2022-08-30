@@ -1,4 +1,5 @@
 import React from "react";
+import "./Loader.scss";
 
 export enum LoaderSize {
     s = 's',
@@ -11,15 +12,14 @@ export type LoaderProps = {
     className?: string;
 };
 
-export const Loader: React.FC<LoaderProps> = ({ loading, size = "m", className }) => {
+const Loader: React.FC<LoaderProps> = ({ loading, size = "m", className }) => {
     if (loading === false) { return null }
     const loaderClasses = "loader_size-" + size + (typeof (className) === "undefined" ? "" : " " + className);
 
     return (
-        <div className={loaderClasses}>
-            <div id="bar-1" className="bar"></div>
-            <div id="bar-2" className="bar"></div>
-            <div id="bar-3" className="bar"></div>
+        <div className="lds-circle">
+            <div className={loaderClasses}></div>
         </div>
     );
 };
+export default Loader;

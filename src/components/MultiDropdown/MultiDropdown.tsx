@@ -1,4 +1,5 @@
 import React from "react";
+import "./MultiDropdown.scss";
 
 export type Option = {
     /** Ключ варианта, используется для отправки на бек/использования в коде */
@@ -22,7 +23,7 @@ export type MultiDropdownProps = {
 }
 
 
-export const MultiDropdown: React.FC<MultiDropdownProps> = ({ options, value, onChange, disabled, pluralizeOptions }) => {
+const MultiDropdown: React.FC<MultiDropdownProps> = ({ options, value, onChange, disabled, pluralizeOptions }) => {
     // event: React.ChangeEvent<HTMLSelectElement>
     const [isVisible, setIsVisible] = React.useState(false);
 
@@ -53,3 +54,4 @@ export const MultiDropdown: React.FC<MultiDropdownProps> = ({ options, value, on
         </div>
     );
 };
+export default MultiDropdown;

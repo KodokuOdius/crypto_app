@@ -1,4 +1,9 @@
-import React from "react";
+import Loader from "@components/Loader/Loader";
+import { LoaderSize } from "@components/Loader/Loader";
+import axios from "axios";
+import React, { useEffect } from "react";
+import { useState } from "react";
+import "./Card.scss";
 
 type CardProps = {
     /** URL изображения */
@@ -11,15 +16,33 @@ type CardProps = {
     content?: React.ReactNode;
     /** Клик на карточку */
     onClick?: React.MouseEventHandler;
+    sparklineNumber?: string;
 };
 
-export const Card: React.FC<CardProps> = ({ image, title, subtitle, content, onClick }) => {
+const Card: React.FC<CardProps> = ({ image, title, subtitle, content, onClick, sparklineNumber }) => {
+    // const [loading, setLoading] = useState(true);
+    // const [sparkline, setSparkline] = useState(null);
+    // useEffect(() => {
+    //     const result = axios({
+    //         method: "get",
+    //         url: `https://www.coingecko.com/coins/${sparklineNumber}/sparkline`
+    //     })
+    //     result.then(data => console.log(data));
+    //     setLoading(false);
+    // }, []);
     return (
         <div className="card" onClick={onClick}>
-            <h2 className="title">{title}</h2>
-            <h3 className="subtitle">{subtitle}</h3>
-            <img src={image} alt="" />
-            <div className="content">{content}</div>
+            <div className="card__img">
+                <img className="card__img_image" src={image} alt={title?.toString()} />
+            </div>
+            <div className="card__head">
+                <h2 className="card__head_title">{title}</h2>
+                <h3 className="card__head_subtitle">{subtitle}</h3>
+            </div>
+            <div className="card__content">
+                {content}
+            </div>
         </div>
     );
 };
+export default Card;
