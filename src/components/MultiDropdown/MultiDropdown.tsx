@@ -24,26 +24,28 @@ export type MultiDropdownProps = {
 
 
 const MultiDropdown: React.FC<MultiDropdownProps> = ({ options, value, onChange, disabled, pluralizeOptions }) => {
-    // event: React.ChangeEvent<HTMLSelectElement>
     const [isVisible, setIsVisible] = React.useState(false);
+    const [selectedValue, setSelectedValue] = React.useState(pluralizeOptions(value));
 
     const handleSelect = (index: number) => {
+        setIsVisible(false);
         const selectedOption = options[index];
-        if (!value.includes(selectedOption)) {
-            value.push(selectedOption);
-            onChange([selectedOption]);
-        } else {
-
-            onChange([...options.slice(0, index), ...options.slice(index + 1)]);
-        };
+        onChange([selectedOption]);
+        // if (!value.includes(selectedOption)) {
+        //     value.push(selectedOption);
+        //     onChange([selectedOption]);
+        // } else {
+        //     onChange([...options.slice(0, index), ...options.slice(index + 1)]);
+        // };
+        setSelectedValue(selectedOption.value);
     };
 
     return (
         <div className="dropdown">
-            <span className="selected" onClick={() => setIsVisible(!isVisible)}>
-                {pluralizeOptions(value)}
+            <span className="dropdown__selected" onClick={() => setIsVisible(!isVisible)}>
+                {selectedValue}
             </span>
-            <ul className="selections">
+            <ul className="dropdown__selections">
                 {
                     (!disabled && isVisible) &&
                     options.map((option, index) => {

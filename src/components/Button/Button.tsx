@@ -21,8 +21,7 @@ const Button: React.FC<ButtonProps> = ({ loading, color = "primary", children, c
     const btnClasses = "button_color-" + color + (disabled === true || loading === true ? " button_disabled" : "") + " " + className;
     return (
         <button color={color} disabled={disabled || loading} className={btnClasses} {...buttonAttrs}>
-            {loading && <Loader loading={loading} />}
-            {children}
+            {!!loading ? <Loader loading={loading} /> : children}
         </button>
     );
 };

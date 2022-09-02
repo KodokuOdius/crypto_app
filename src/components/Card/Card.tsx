@@ -1,8 +1,9 @@
-import Loader from "@components/Loader/Loader";
-import { LoaderSize } from "@components/Loader/Loader";
-import axios from "axios";
-import React, { useEffect } from "react";
-import { useState } from "react";
+// import Loader from "@components/Loader/Loader";
+// import { LoaderSize } from "@components/Loader/Loader";
+// import axios from "axios";
+// import React, { useEffect } from "react";
+// import { useState } from "react";
+import React from "react";
 import "./Card.scss";
 
 type CardProps = {

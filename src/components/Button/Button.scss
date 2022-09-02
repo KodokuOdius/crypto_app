@@ -1,0 +1,22 @@
+button {
+    padding-inline: 10px;
+    font-size: 14pt;
+    border-radius: 5px;
+    font-weight: 700;
+
+    &.selected {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+}
+
+.button_color- {
+    &primary {
+        background-color: black;
+        color: white;
+    }
+
+    &secondary {
+        background-color: white;
+        color: black;
+    }
+}

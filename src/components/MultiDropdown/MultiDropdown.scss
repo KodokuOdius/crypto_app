@@ -1,0 +1,24 @@
+.dropdown {
+    &__selected {
+        border: 2px solid #131313;
+        border-radius: 5px;
+        padding-inline: 20px;
+    }
+
+    &__selections {
+        position: absolute;
+        background-color: white;
+        border-radius: 5px;
+        margin-top: 3px;
+
+        li {
+            padding-inline: 20px;
+            border: 2px solid #131313;
+            border-radius: 5px;
+        }
+
+        li+li {
+            margin-top: 2px;
+        }
+    }
+}
