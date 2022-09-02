@@ -6,6 +6,7 @@ import Filters from '@components/Filters';
 import { FiltersValues } from '@components/Filters/Filters';
 import { LoaderSize } from '@components/Loader/Loader';
 import { createContext, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import "./Main.scss";
 
 
@@ -53,20 +54,22 @@ const Main = () => {
                 <ul className="coins_list">
                     {coins.map((coin: any) => {
                         const coinChangeClass = coin.price_change_percentage_24h < 0 ? "red" : "green"
-                        if (filter == "all" || filter == coinChangeClass) {
+                        if (filter === "all" || filter === coinChangeClass) {
                             return <li key={coin.id} className="coin_item">
-                                <Card image={coin.image} title={coin.name} subtitle={coin.symbol} sparklineNumber={coin.image.split("/")[5]}
-                                    content={
-                                        <div className="info">
-                                            <h3 className="coin_price">{coin.current_price}{currency.symbol}</h3>
-                                            <h4 className={"coin_change " + coinChangeClass}>{coin.price_change_percentage_24h}%</h4>
-                                            <div className="high__low">
-                                                <h5 className="coin_high">max(24h): {coin.high_24h}{currency.symbol}</h5>
-                                                <h5 className="coin_low">min(24h): {coin.low_24h}{currency.symbol}</h5>
+                                <Link to={`coin/${coin.id}`}>
+                                    <Card image={coin.image} title={coin.name} subtitle={coin.symbol} sparklineNumber={coin.image.split("/")[5]}
+                                        content={
+                                            <div className="info">
+                                                <h3 className="coin_price">{coin.current_price}{currency.symbol}</h3>
+                                                <h4 className={"coin_change " + coinChangeClass}>{coin.price_change_percentage_24h}%</h4>
+                                                <div className="high__low">
+                                                    <h5 className="coin_high">max(24h): {coin.high_24h}{currency.symbol}</h5>
+                                                    <h5 className="coin_low">min(24h): {coin.low_24h}{currency.symbol}</h5>
+                                                </div>
                                             </div>
-                                        </div>
-                                    }
-                                />
+                                        }
+                                    />
+                                </Link>
                             </li>
                         };
                     })}
