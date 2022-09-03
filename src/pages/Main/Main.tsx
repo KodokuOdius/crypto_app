@@ -71,7 +71,7 @@ const Main = () => {
                                     />
                                 </Link>
                             </li>
-                        };
+                        } else { return null };
                     })}
                 </ul>
             }
